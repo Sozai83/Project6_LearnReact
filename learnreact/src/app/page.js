@@ -10,7 +10,7 @@ export default function Home() {
   const [open, setOpen] = useState(false);
 
   const onChangeInput = (e) => {
-    SetInputValue(e.value);
+    SetInputValue(e.target.value);
   };
 
   const onClickOpen = () => {

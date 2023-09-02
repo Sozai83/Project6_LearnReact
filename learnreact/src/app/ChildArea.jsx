@@ -1,4 +1,6 @@
-export const ChildArea = (props) => {
+import { memo } from 'react';
+
+export const ChildArea = memo((props) => {
   const { open } = props;
   console.group("ChildArea got rendered.")
   const data = [...Array(2000).keys()];
@@ -13,4 +15,4 @@ export const ChildArea = (props) => {
       </div>) : null}
     </>
   );
-};
+});
