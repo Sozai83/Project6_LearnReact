@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useMemo } from "react";
-import { ChildArea } from "./ChildArea";
+import { InlineStyle } from "./component/InlineStyle";
 import Image from "next/image";
 import styles from "./page.module.css";
 
@@ -24,15 +24,10 @@ export default function Home() {
 
   // Keep the fucntion as memo
   const temp = useMemo(() => 1 + 3, []);
-  console.log(temp);
 
   return (
     <main className={styles.main}>
-      <input value={inputValue} onChange={onChangeInput}></input>
-      <br />
-      <br />
-      <button onClick={onClickOpen}>Show</button>
-      <ChildArea open={open} onClickClose={onClickClose} />
+      <InlineStyle />
     </main>
   );
 }
