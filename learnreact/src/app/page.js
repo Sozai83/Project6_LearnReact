@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { ChildArea } from "./ChildArea";
 import Image from "next/image";
 import styles from "./page.module.css";
@@ -17,13 +17,17 @@ export default function Home() {
     setOpen(!open);
   };
 
+  const onClickClose = useCallback(() => {
+    setOpen(false);
+  }, [setOpen]);
+
   return (
     <main className={styles.main}>
       <input value={inputValue} onChange={onChangeInput}></input>
       <br />
       <br />
       <button onClick={onClickOpen}>Show</button>
-      <ChildArea open={open} />
+      <ChildArea open={open} onClickClose={onClickClose} />
     </main>
   );
 }
