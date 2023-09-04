@@ -41,21 +41,11 @@ export default function Home() {
         <Link to="/page2">Page2</Link>
       </main>
       <Routes>
-        <Route
-          path="/page1"
-          element={
-            <Route exact path="/page1" element={<Page1 />}>
-              <Route
-                path="/page1/page1detaila"
-                element={<Page1DetailA />}
-              ></Route>
-              <Route
-                path="/page1/page1detailb"
-                element={<Page1DetailB />}
-              ></Route>
-            </Route>
-          }
-        ></Route>
+        <Route path="/page1">
+          <Route index={true} element={<Page1 />}></Route>
+          <Route path="/page1/page1detaila" element={<Page1DetailA />}></Route>
+          <Route path="/page1/page1detailb" element={<Page1DetailB />}></Route>
+        </Route>
         <Route path="/page2" element={<Page2 />}></Route>
         <Route exact path="/" element={<Home1 />}></Route>
       </Routes>
