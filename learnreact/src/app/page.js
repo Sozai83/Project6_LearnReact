@@ -43,8 +43,16 @@ export default function Home() {
       <Routes>
         <Route path="/page1">
           <Route index={true} element={<Page1 />}></Route>
-          <Route path="/page1/page1detaila" element={<Page1DetailA />}></Route>
-          <Route path="/page1/page1detailb" element={<Page1DetailB />}></Route>
+          <Route
+            index={false}
+            path="page1detaila"
+            element={<Page1DetailA />}
+          ></Route>
+          <Route
+            index={false}
+            path="page1detailb"
+            element={<Page1DetailB />}
+          ></Route>
         </Route>
         <Route path="/page2" element={<Page2 />}></Route>
         <Route exact path="/" element={<Home1 />}></Route>
