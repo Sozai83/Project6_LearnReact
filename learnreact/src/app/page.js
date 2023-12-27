@@ -41,7 +41,25 @@ export default function Home() {
         <Link to="/page2">Page2</Link>
       </main>
       <Routes>
-        <Route path="/page1">
+        <Route path='/page1' render={()=>(
+          <Routes>
+            <Route exact path='/page1'>
+              <Page1 />
+            </Route>
+            <Route
+            index={false}
+            path="page1detaila"
+            element={<Page1DetailA />}
+          ></Route>
+          <Route
+            index={false}
+            path="page1detailb"
+            element={<Page1DetailB />}
+          ></Route>
+          </Routes>          
+        )}>
+        </Route>
+        {/* <Route path="/page1">
           <Route index={true} element={<Page1 />}></Route>
           <Route
             index={false}
@@ -53,8 +71,9 @@ export default function Home() {
             path="page1detailb"
             element={<Page1DetailB />}
           ></Route>
-        </Route>
+        </Route> */}
         <Route path="/page2" element={<Page2 />}></Route>
+        {/* Having exact means that the path needs to match '/' otherwise, it can be rendered with /page1 as '/' exists */}
         <Route exact path="/" element={<Home1 />}></Route>
       </Routes>
     </BrowserRouter>
