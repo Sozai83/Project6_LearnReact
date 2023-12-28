@@ -1,27 +1,33 @@
+'use client';
+
 import { Routes, Route } from "react-router-dom";
 import { Page1 } from "../component/Pages/Page1";
 import { Page2 } from "../component/Pages/Page2";
 import { Home1 } from "../component/Pages/Home1";
 import { Page1DetailA } from "../component/Pages/DetailedPages/Page1DetailA";
 import { Page1DetailB } from "../component/Pages/DetailedPages/Page1DetailB";
+import { page1Routes } from "./Page1Routes";
 
 const Router = () => {
     (
         <Routes>
             {/* <Route path="/page1" render={()=>(
-          <Routes>
-            <Route path="/page1" element={<Page1 />}/>
-            <Route
-            path="page1/page1detaila"
-            element={<Page1DetailA />}/>
-            <Route
-              path="page1/page1detailb"
-              element={<Page1DetailB />}/>
-          </Routes>          
-        )}>
-        </Route> */}
+      <Routes>
+        <Route path="/page1" element={<Page1 />}/>
+        <Route
+        path="page1/page1detaila"
+        element={<Page1DetailA />}/>
+        <Route
+          path="page1/page1detailb"
+          element={<Page1DetailB />}/>
+      </Routes>
+    )}>
+    </Route> */}
             <Route path="/page1">
-                <Route index={true} element={<Page1 />}></Route>
+                {/* {page1Routes.map((route) => {
+                <Route index={route.exact} path={route.path} element={route.children}></Route>
+            })} */}
+                <Route index={true} exact path="/page1" element={<Page1 />}></Route>
                 <Route
                     index={false}
                     path="page1detaila"

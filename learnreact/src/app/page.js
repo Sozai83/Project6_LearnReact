@@ -9,6 +9,8 @@ import { Page2 } from "./component/Pages/Page2";
 import { Home1 } from "./component/Pages/Home1";
 import { Page1DetailA } from "./component/Pages/DetailedPages/Page1DetailA";
 import { Page1DetailB } from "./component/Pages/DetailedPages/Page1DetailB";
+import { page1Routes } from "./router/Page1Routes";
+import {Page404} from "./component/Pages/Page404"
 
 
 export default function Home() {
@@ -51,7 +53,24 @@ export default function Home() {
           </Routes>          
         )}>
         </Route> */}
-            <Router/>
+            <Route path="/page1">
+                <Route index={true} element={<Page1 />}></Route>
+                <Route
+                    index={false}
+                    path="page1detaila"
+                    element={<Page1DetailA />}
+                ></Route>
+                <Route
+                    index={false}
+                    path="page1detailb"
+                    element={<Page1DetailB />}
+                ></Route>
+            </Route>
+            <Route path="/page2" element={<Page2 />}></Route>
+            {/* Having exact means that the path needs to match '/' otherwise, it can be rendered with /page1 as '/' exists */}
+            <Route exact path="/" element={<Home1 />}></Route>
+            {/* For any other path, it returns page 404 */}
+            <Route path="*" element={<Page404 />}></Route>
         </Routes>
     </BrowserRouter>
   );
