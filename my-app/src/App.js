@@ -1,10 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import {Router} from './components/router/Router'
+import { UserProvider } from './providers/UserProvider';
 
 function App() {
   return (
-    <Router/>
+    <UserProvider>
+      <Router/>
+    </UserProvider>
+    
   );
 }
 

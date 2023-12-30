@@ -3,6 +3,11 @@ import { SearchInput } from '../molcules/SearchInput'
 
 import { UserCard } from '../organisms/user/UserCard.jsx'
 
+import { useLocation } from 'react-router-dom'
+import { SecondaryButton } from '../atoms/button/SecondaryButton';
+import { useContext } from 'react';
+import { UserContext } from '../../providers/UserProvider';
+
 
 const users = [...Array(10).keys()].map((val) => {
     return (
@@ -22,11 +27,18 @@ const users = [...Array(10).keys()].map((val) => {
 
 
 export const Users = () => {
+    const { userInfo, setUserInfo } = useContext(UserContext);
+    const onClickSwitch = () => {
+        setUserInfo({ isAdmin: userInfo ? !userInfo?.isAdmin : false })
+    }
+
     return (
 
         <SConteiner>
             <h2>Here are users</h2>
             <SearchInput></SearchInput>
+            <br />
+            <SecondaryButton onClick={onClickSwitch}>Switch</SecondaryButton>
             <SUserArea>
                 {users.map(user => (
                     <UserCard key={user.id} user={user} />
